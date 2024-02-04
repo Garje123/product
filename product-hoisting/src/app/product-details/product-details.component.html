@@ -1,0 +1,64 @@
+  
+  
+  <div class="container">
+    <div class="row">
+      <form  class="col-sm-4 mt-3  col-md-3 h-100" *ngFor="let Ing of productObj ;let i=index">
+        <div class="card">
+          <div class="image-card">
+            <img [src]="Ing.image" class="card-img-top"  width='150' height="130" alt="">
+          </div>
+          <div class="card-body">
+            <h1 class="card-text text-center  text-truncate " >{{Ing.ProductName}}</h1>
+            <div class="container">
+              <p class="text-center" >{{Ing.Price*Ing.count|currency:'INR'}}</p>
+            </div>
+            <hr>
+            <div class="row justify-content-between ">
+              <button class="bt btn-secondary px-2  border border-secondary rounded" style="width:28%" (click)="Decrements(Ing)">-</button>
+              <button type="button" class="btn-white border border-secondary rounded"  style="width:40%">{{Ing.count}}</button>
+              <button class="bt btn-secondary px-2  border border-secondary rounded" style="width:28%" (click)="Increments(Ing)">+</button>
+            </div>
+            <div class="row justify-content-center mt-4 mb-3">
+              <button type="button"  (click)="cardupdatedData(Ing)" class="badge text-center badge-white rounded border border-secondary py-2 " style="width:95%">Add To
+                Bags</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="row mt-5">
+      <div class="col-sm-12 table-responsive">
+        <h1>My Shopping Bags</h1>
+        <table class="table table-bordered  ">
+          <thead>
+            <tr>
+              <th scope="col" style="width:40%">Product Name</th>
+              <th scope="col" style="width:10%">Quantity</th>
+              <th scope="col" style="width:20%">Price Details</th>
+              <th scope="col" style="width:20%">Order Total</th>
+              <th scope="col" style="width:10%">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let tab of filtered">
+              <td scope="row" style="width:40%">{{tab.productname}}</td>
+              <td style="width:10%">{{tab.count}}</td>
+              <td style="width:20%">{{tab.prices}}</td>
+              <td style="width:20%">{{tab.ordertotal}}</td>
+              <td style="width:10%" >x</td>
+            </tr>
+            <tr >
+              <td scope="row" style="width:40%" colspan="3" class="text-right">Total</td>
+              <td style="width:10%" class="text-right">{{totals}}</td>
+              <td style="width:20%"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+     
+      
+    </div>
+  </div> 
+  
+  
+  

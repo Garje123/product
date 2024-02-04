@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <input type="type" class="form-control my-2" placeholder="Search name" [(ngModel)]="namesearch">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Sr no</th>
+                    <th>Name</th>
+                    <th>price</th>
+                    <th>Availability</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of productarr |filter:namesearch">
+                    <td>{{product.SrNo}}</td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.product}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
