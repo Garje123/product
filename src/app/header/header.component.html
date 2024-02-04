@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+    <a class="navbar-brand" href="#">Shopping</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <button type="submit" class="btn btn-danger my-sm-0 ml-auto" data-toggle="modal" data-target="#staticBackdrop">
+          <i class="fa fa-shopping-cart " aria-hidden="true"></i>Buy now
+        </button>
+    </div>
+  </nav>
+  <!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Product details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="MyProduct()" [formGroup]="myform">
+          <div class="form-group">
+            <label for="exampleFormControlFile1">Product image</label>
+            <input type="file"   accept=".gif,.jpg,.jpeg,.png,.mp4" id="exampleFormControlFile1"    class="form-control-file" name="image" (change)="fileupload($event)"  formControlName="image" >
+            <span class="text-danger">{{file_error}}</span>
+            <span *ngIf="!myform.get('image').valid&&myform.get('image').touched" class="text-danger">Image is required</span>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Product Name</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="ProductName"formControlName='ProductName' aria-describedby="emailHelp">
+            <span *ngIf="!myform.get('ProductName').valid&&myform.get('ProductName').touched" class="text-danger">Product Name is required</span>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">product Price</label>
+            <input type="number" class="form-control" name="Price" formControlName="Price" id="exampleInputPassword1">
+            <span *ngIf="!myform.get('Price').valid&&myform.get('Price').touched" class="text-danger">Price is required</span>
+          </div>
+          <ng-container *ngIf="dasablefile">
+            <button type="submit" class="btn btn-secondary" [disabled]="!myform.valid">Add Product</button>
+          </ng-container>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>

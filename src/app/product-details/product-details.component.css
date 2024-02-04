@@ -1,0 +1,21 @@
+
+
+h1{
+    font-size: 1.2em;
+}
+.image-card {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding-top:1rem;
+    padding-left:1rem;
+    padding-bottom:0px;
+    padding-right:1rem;
+}
+.card-body{
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding-top:0.8rem;
+    padding-left:1.25rem;
+    padding-bottom:1.25px;
+    padding-right:1.25rem;
+}
